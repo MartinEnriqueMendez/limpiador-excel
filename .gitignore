@@ -2,3 +2,23 @@ venv/
 __pycache__/
 datos_sucios.xlsx
 grafico_temp.png
+
+# archivos específicos
+datos_sucios.xlsx
+grafico_temp.png
+
+# Entorno virtual y Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Archivos temporales de Excel
+# Estos archivos empiezan con ~$ y se crean solos cuando abres un Excel.
+# Si no se ignora, git intenta subirlos y dan error.
+~$*.xlsx
+~$*.xls
+
+# Carpetas de editores
+.vscode/
+.idea/
