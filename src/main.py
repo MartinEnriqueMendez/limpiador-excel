@@ -24,16 +24,17 @@ def ejecutar_procesamiento():
         try:
             df_sucio = pd.read_excel(ruta)
             
-            # INVOCACIÓN AL LIMPIADOR
+            # Llamada al limpiador
             df_pulido = limpiar_planilla(df_sucio)
             
+            # Guardar planilla de calculo limpia
             df_pulido.to_excel(os.path.join(output_folder, f"PULIDO_{nombre}"), index=False)
             print(f"--- {nombre} finalizado con éxito ---")
             
-            df_pulido = limpiar_planilla(df_sucio)
-            #Después de guardar el excel, se genera el reporte
-            generar_reporte(df_pulido)
-            
+            #df_pulido = limpiar_planilla(df_sucio)
+            # Se dispara el reporte
+            generar_reporte(df_pulido, nombre)
+                        
         except Exception as e:
             print(f"Error en {nombre}: {e}")
 

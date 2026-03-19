@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from fpdf import FPDF
 import os
 
-def generar_reporte():
+def generar_reporte(df, nombre_original):
     #1. cargar los datos ya pulidos
     df = pd.read_excel('datos_limpios.xlsx')
     
@@ -81,9 +81,10 @@ def generar_reporte():
         pdf.ln()
         
     #4. Guardar archivo final y limpiar
-    pdf.output('reporte_ventas_final.pdf')
+    nombre_salida = f"data/output/REPORTE_{nombre_original.replace('.xlsx', '.pdf')}"
+    pdf.output(nombre_salida)
     os.remove('grafico_temp.png') #se borra la imágen temporal
-    print(">>> ¡Éxito! El archivo 'reporte_ventas_final.pdf' ha sido generado.")
+    print(f">>> ¡Éxito! El archivo {nombre_original} ha sido generado.")
     
 if __name__ == "__main__":
     generar_reporte()
