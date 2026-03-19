@@ -4,6 +4,7 @@ import pandas as pd
 # Importamos tu función desde el archivo limpiador.py
 from limpiador import limpiar_planilla 
 
+
 def ejecutar_procesamiento():
     input_folder = 'data/input/'
     output_folder = 'data/output/'
@@ -28,8 +29,13 @@ def ejecutar_procesamiento():
             df_pulido.to_excel(os.path.join(output_folder, f"PULIDO_{nombre}"), index=False)
             print(f"--- {nombre} finalizado con éxito ---")
             
+            df_pulido = limpiar_planilla(df_sucio)
+            #Después de guardar el excel, se genera el reporte
+            generar_pdf(df_pulido, nombre_archivo)
+            
         except Exception as e:
             print(f"Error en {nombre}: {e}")
+
 
 if __name__ == "__main__":
     ejecutar_procesamiento()
