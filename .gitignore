@@ -1,3 +1,8 @@
+#carpetas de datos (ignorar todo el contenido)
+data/input/*.xlsx
+data/output/*
+!data/output/.gitkeep
+
 venv/
 __pycache__/
 datos_sucios.xlsx
